@@ -6,7 +6,7 @@ import com.yaojiafeng.springboot.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
+import javax.validation.Valid;
 
 /**
  * Created by yaojiafeng on 2017/5/17 下午5:54.
@@ -22,4 +22,9 @@ public class CityRestController {
         return cityService.findCityByName(cityName);
     }
 
+
+    @RequestMapping(value = "/api/city",method = RequestMethod.POST)
+    public int saveCity(@Valid @RequestBody City city){
+        return cityService.saveCity(city);
+    }
 }

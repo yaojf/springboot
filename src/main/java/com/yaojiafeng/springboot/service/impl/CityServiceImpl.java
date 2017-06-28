@@ -19,4 +19,9 @@ public class CityServiceImpl implements CityService {
         return cityDao.findByName(cityName);
     }
 
+    @Override
+    public int saveCity(City city) {
+        return cityDao.saveCity(city);
+    }
+
 }

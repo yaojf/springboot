@@ -16,4 +16,5 @@ public interface CityService {
      */
     City findCityByName(String cityName);
 
+    int saveCity(City city);
 }
