@@ -23,8 +23,17 @@ public interface CityDao {
      * mybatis会根据具体传入对象的字段的类型，生成对应的ParameterMapping，故写sql的时候，不需要指定Java类型
      * 同理写resultMap的result映射的时候也不需要指定具体的Java类型
      * mybatis会根据对象的class解析字段类型
+     *
      * @param list
      * @return
      */
     int creates(List<City> list);
+
+
+    /**
+     * mybatis参数类型声明，并无实质校验作用，传map和传obj都可以
+     * @param city
+     * @return
+     */
+    List<City> list(City city);
 }

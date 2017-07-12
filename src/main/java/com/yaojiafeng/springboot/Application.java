@@ -4,6 +4,7 @@
  */
 package com.yaojiafeng.springboot;
 
+import com.yaojiafeng.springboot.dao.CityDao;
 import com.yaojiafeng.springboot.domain.City;
 import com.yaojiafeng.springboot.service.CityService;
 import org.mybatis.spring.annotation.MapperScan;
@@ -28,21 +29,29 @@ public class Application {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
 
 
-        CityService cityService = context.getBean(CityService.class);
-        List<City> list = new ArrayList<>();
+//        CityService cityService = context.getBean(CityService.class);
+//        List<City> list = new ArrayList<>();
+//        City city = new City();
+//        city.setId(3L);
+//        city.setCityName("1");
+//        city.setProvinceId(1L);
+//        city.setDescription("nima");
+//        City city2 = new City();
+//        city2.setId(4L);
+//        city2.setCityName("1");
+//        city2.setProvinceId(1L);
+//        city2.setDescription("nima");
+//        list.add(city);
+//        list.add(city2);
+//        cityService.creates(list);
+
+        CityDao cityDao = context.getBean(CityDao.class);
         City city = new City();
-        city.setId(3L);
-        city.setCityName("1");
-        city.setProvinceId(1L);
-        city.setDescription("nima");
-        City city2 = new City();
-        city2.setId(4L);
-        city2.setCityName("1");
-        city2.setProvinceId(1L);
-        city2.setDescription("nima");
-        list.add(city);
-        list.add(city2);
-        cityService.creates(list);
+        city.setId(101L);
+        List<City> list = cityDao.list(city);
+        System.out.println(list);
+
+
     }
 
 }

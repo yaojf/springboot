@@ -36,5 +36,20 @@
         </foreach>
     </insert>
 
+    <select id="list" parameterType="map" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        city
+        WHERE 1=1
+        <include refid="dynamic_condition"/>
+    </select>
+
+    <sql id="dynamic_condition">
+        <if test="id != null ">AND id = #{id}</if>
+        <if test="provinceId != null ">AND province_id = #{provinceId}</if>
+        <if test="cityName != null ">AND city_name = #{cityName}</if>
+        <if test="description != null ">AND description = #{description}</if>
+    </sql>
 
 </mapper>
