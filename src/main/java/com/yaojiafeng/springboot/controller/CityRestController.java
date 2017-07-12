@@ -27,4 +27,5 @@ public class CityRestController {
     public int saveCity(@Valid @RequestBody City city){
         return cityService.saveCity(city);
     }
+
 }

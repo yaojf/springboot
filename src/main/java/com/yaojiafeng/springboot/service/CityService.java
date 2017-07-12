@@ -17,4 +17,13 @@ public interface CityService {
     City findCityByName(String cityName);
 
     int saveCity(City city);
+
+
+    /**
+     * 你传空list就报错
+     * @param list
+     * @return
+     */
+    int creates(List<City> list);
+
 }

@@ -6,6 +6,8 @@ import com.yaojiafeng.springboot.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by yaojiafeng on 2017/5/17 下午5:56.
  */
@@ -22,6 +24,11 @@ public class CityServiceImpl implements CityService {
     @Override
     public int saveCity(City city) {
         return cityDao.saveCity(city);
+    }
+
+    @Override
+    public int creates(List<City> list) {
+        return cityDao.creates(list);
     }
 
 }
