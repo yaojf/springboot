@@ -44,9 +44,7 @@ public class Application {
 //        list.add(city);
 //        list.add(city2);
 //        cityService.creates(list);
-
-        System.out.println(123456);
-
+        
 
 //        CityDao cityDao = context.getBean(CityDao.class);
 //        City city = new City();
