@@ -46,12 +46,11 @@ public class Application {
 //        cityService.creates(list);
 
 
-        CityDao cityDao = context.getBean(CityDao.class);
-        City city = new City();
-        city.setId(101L);
-        List<City> list = cityDao.list(city);
-        System.out.println(list);
-        
+//        CityDao cityDao = context.getBean(CityDao.class);
+//        City city = new City();
+//        city.setId(101L);
+//        List<City> list = cityDao.list(city);
+//        System.out.println(list);
 
     }
 
