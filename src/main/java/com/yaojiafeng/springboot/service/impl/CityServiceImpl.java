@@ -5,6 +5,7 @@ import com.yaojiafeng.springboot.domain.City;
 import com.yaojiafeng.springboot.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class CityServiceImpl implements CityService {
     }
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public int saveCity(City city) {
         return cityDao.saveCity(city);
     }
