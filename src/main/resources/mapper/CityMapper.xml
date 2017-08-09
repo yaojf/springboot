@@ -21,7 +21,7 @@
         where city_name = #{cityName}
     </select>
 
-    <insert id="saveCity" parameterType="City">
+    <insert id="saveCity" parameterType="City" keyProperty="id" useGeneratedKeys="true">
         insert into city
         ( <include refid="Base_Column_List"/> )
         values (#{id},#{provinceId},#{cityName},#{description})

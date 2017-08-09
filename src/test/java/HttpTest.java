@@ -42,7 +42,8 @@ public class HttpTest {
         printWriter = new PrintWriter(connection.getOutputStream());
 
         City city = new City();
-        city.setProvinceId(1L);
+        city.setId(1L);
+        city.setProvinceId(2L);
         city.setCityName("nima");
 
         buffer.append(JSON.toJSONString(city));

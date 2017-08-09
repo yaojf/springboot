@@ -17,6 +17,12 @@ public interface CityDao {
      */
     City findByName(@Param("cityName") String cityName);
 
+    /**
+     * insert语句keyProperty="id" useGeneratedKeys="true"
+     * 如果传了id就返回的生成key值就是传的id值
+     * @param city
+     * @return
+     */
     int saveCity(City city);
 
     /**
