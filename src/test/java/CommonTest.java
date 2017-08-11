@@ -5,10 +5,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 import lombok.Data;
 import org.junit.Test;
+import org.springframework.util.Assert;
 
 import java.io.IOException;
+import java.sql.Time;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author yaojiafeng
@@ -53,4 +60,32 @@ public class CommonTest {
         generator.flush();
     }
 
+
+    @Test
+    public void test(){
+
+        System.out.println(futureDate(1, TimeUnit.HOURS));
+    }
+
+    public static Date futureDate(long value, TimeUnit timeUnit) {
+        Assert.notNull(timeUnit);
+        LocalDateTime localDateTime = LocalDateTime.now();
+        LocalDateTime futureDateTime = null;
+        if (timeUnit == TimeUnit.DAYS) {
+            futureDateTime = localDateTime.plusDays(value);
+        } else if (timeUnit == TimeUnit.HOURS) {
+            futureDateTime = localDateTime.plusHours(value);
+        } else if (timeUnit == TimeUnit.MINUTES) {
+            futureDateTime = localDateTime.plusMinutes(value);
+        } else if (timeUnit == TimeUnit.SECONDS) {
+            futureDateTime = localDateTime.plusSeconds(value);
+        } else {
+            throw new IllegalArgumentException("不支持的时间单位");
+        }
+
+        ZoneId zone = ZoneId.systemDefault();
+        Instant instant = futureDateTime.atZone(zone).toInstant();
+        Date date = Date.from(instant);
+        return date;
+    }
 }

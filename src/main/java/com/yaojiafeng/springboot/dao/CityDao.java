@@ -1,13 +1,17 @@
 package com.yaojiafeng.springboot.dao;
 
 import com.yaojiafeng.springboot.domain.City;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 /**
+ * 我们也可以用@Mapper注解生成动态代理类
+ *
  * Created by yaojiafeng on 2017/5/17 下午5:50.
  */
+@Mapper
 public interface CityDao {
 
     /**
