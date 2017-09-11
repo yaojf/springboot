@@ -1,0 +1,29 @@
+<configuration>
+    <property name="CATALINA_BASE" value="/Users/zcy/IdeaProjects/springboot"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- encoder 默认配置为PatternLayoutEncoder -->
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - traceId:[%X{mdc_trace_id}] - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ALL" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${CATALINA_BASE}/logs/all.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- daily rollover -->
+            <fileNamePattern>${CATALINA_BASE}/logs/all.%d{yyyy-MM-dd}.log</fileNamePattern>
+            <!-- keep 30 days' worth of history -->
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+        <encoder charset="UTF-8">
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - traceId:[%X{mdc_trace_id}] - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="INFO">
+        <appender-ref ref="ALL"/>
+    </root>
+</configuration>
