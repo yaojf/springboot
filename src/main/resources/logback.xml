@@ -24,6 +24,6 @@
 
 
     <root level="INFO">
-        <appender-ref ref="ALL"/>
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
