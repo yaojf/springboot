@@ -6,3 +6,15 @@ dataflowJob:
   cron: 0/5 * * * * ?
   shardingTotalCount: 3
   shardingItemParameters: 0=Beijing,1=Shanghai,2=Guangzhou
+
+
+#测试ConfigurationProperties注入
+mqClientConfig:
+  mqConfigs:
+    biz_1:
+      accessKey: ${zcy.ons.accessKey:123}
+      secretKey: ${zcy.ons.secretKey:123}
+      useOns: ${zcy.ons.useOns:true}
+      topic: topic
+      consumerGroup:  consumerGroup
+      namesrvAddr: ${zcy.nameServer.addr:127.0.0.1:9876}
