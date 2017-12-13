@@ -1,6 +1,7 @@
 package com.yaojiafeng.springboot.service;
 
 import com.yaojiafeng.springboot.domain.City;
+import com.yaojiafeng.springboot.domain.PageBean;
 
 import java.util.List;
 
@@ -21,9 +22,11 @@ public interface CityService {
 
     /**
      * 你传空list就报错
+     *
      * @param list
      * @return
      */
     int creates(List<City> list);
 
+    PageBean<City> list(City city, int pageNum, int pageSize);
 }

@@ -1,7 +1,11 @@
 package com.yaojiafeng.springboot.service.impl;
 
+import com.github.pagehelper.Page;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.yaojiafeng.springboot.dao.CityDao;
 import com.yaojiafeng.springboot.domain.City;
+import com.yaojiafeng.springboot.domain.PageBean;
 import com.yaojiafeng.springboot.log.LogMDC;
 import com.yaojiafeng.springboot.service.CityService;
 import lombok.extern.slf4j.Slf4j;
@@ -38,6 +42,18 @@ public class CityServiceImpl implements CityService {
     @Override
     public int creates(List<City> list) {
         return cityDao.creates(list);
+    }
+
+    @Override
+    public PageBean<City> list(City city, int pageNum, int pageSize) {
+        //分页处理
+        PageHelper.startPage(pageNum, pageSize);
+        //查询
+        List<City> cityList = cityDao.list(city);
+        //清空
+        PageHelper.clearPage();
+        //获取分页信息
+        return new PageBean<>(cityList);
     }
 
 }
