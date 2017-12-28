@@ -72,6 +72,7 @@ public class ValidatorImplTest {
     }
 
     // 校验示范方法
+    // @Valid注解也可以识别
     public void vaildMethod(@NotNull @Range(min = 0, max = 18) Integer age, @NotBlank String build, String test) {
 
     }
