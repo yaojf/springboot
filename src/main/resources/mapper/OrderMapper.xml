@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yaojiafeng.springboot.dao.OrderDao">
+    <resultMap id="BaseResultMap" type="com.yaojiafeng.springboot.domain.Order">
+        <result column="id" property="id"/>
+        <result column="order_id" property="orderId"/>
+        <result column="status" property="status" typeHandler="com.yaojiafeng.springboot.mybatis.StatusTypeHandler"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, order_id, status
+    </sql>
+
+    <select id="findByOrderId" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+        where order_id = #{orderId}
+    </select>
+
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from `order`
+    </select>
+
+    <update id="save" parameterType="com.yaojiafeng.springboot.domain.Order">
+        update `order` set status = #{status,typeHandler=com.yaojiafeng.springboot.mybatis.StatusTypeHandler} where id = #{id}
+    </update>
+</mapper>
