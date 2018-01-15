@@ -7,6 +7,7 @@ package com.yaojiafeng.springboot;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.yaojiafeng.springboot.extension.ConfigurationProperties.MQClientConfig;
+import com.yaojiafeng.springboot.service.RemoteService;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -15,6 +16,7 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.retry.annotation.EnableRetry;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
@@ -27,10 +29,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 //支持WebServlet，WebFilter，WebListener注入到ServletContext
 @ServletComponentScan
 @EnableConfigurationProperties(MQClientConfig.class)
+// spring重试
+@EnableRetry
 public class Application {
 
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(Application.class, args);
+
+        RemoteService remoteService = context.getBean(RemoteService.class);
+        remoteService.call();
     }
 
     @Bean
