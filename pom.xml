@@ -21,6 +21,18 @@
 
 
     <dependencies>
+        <!--web模版-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+
+        <!--权限控制-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+        </dependency>
+
         <!--spring重试-->
         <dependency>
             <groupId>org.springframework.retry</groupId>
