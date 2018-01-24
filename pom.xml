@@ -21,6 +21,13 @@
 
 
     <dependencies>
+        <!--金额的处理-->
+        <dependency>
+            <groupId>org.javamoney</groupId>
+            <artifactId>moneta</artifactId>
+            <version>1.1</version>
+        </dependency>
+
         <!--web模版-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
