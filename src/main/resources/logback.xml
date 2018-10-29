@@ -1,5 +1,5 @@
 <configuration>
-    <property name="CATALINA_BASE" value="/Users/zcy/IdeaProjects/springboot"/>
+    <property name="CATALINA_BASE" value="/Users/yaojiafeng/IdeaProjects/springboot"/>
 
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <!-- encoder 默认配置为PatternLayoutEncoder -->
