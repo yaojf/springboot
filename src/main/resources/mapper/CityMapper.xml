@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.yaojiafeng.springboot.dao.CityDao">
-    <resultMap id="BaseResultMap" type="City">
+    <resultMap id="BaseResultMap" type="com.yaojiafeng.springboot.domain.City">
         <result column="id" property="id"/>
         <result column="province_id" property="provinceId"/>
         <result column="city_name" property="cityName"/>
         <result column="description" property="description"/>
     </resultMap>
-
-    <parameterMap id="City" type="com.yaojiafeng.springboot.domain.City"/>
 
     <sql id="Base_Column_List">
         id, province_id, city_name, description
@@ -21,7 +19,7 @@
         where city_name = #{cityName}
     </select>
 
-    <insert id="saveCity" parameterType="City" keyProperty="id" useGeneratedKeys="true">
+    <insert id="saveCity" parameterType="com.yaojiafeng.springboot.domain.City" keyProperty="id" useGeneratedKeys="true">
         insert into city
         ( <include refid="Base_Column_List"/> )
         values (#{id},#{provinceId},#{cityName},#{description})

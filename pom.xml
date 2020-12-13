@@ -21,6 +21,12 @@
 
 
     <dependencies>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.3.2</version>
+        </dependency>
+
         <!--金额的处理-->
         <dependency>
             <groupId>org.javamoney</groupId>
@@ -67,11 +73,11 @@
         </dependency>
 
         <!-- Spring Boot Mybatis 依赖 -->
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>${mybatis-spring-boot}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.mybatis.spring.boot</groupId>-->
+<!--            <artifactId>mybatis-spring-boot-starter</artifactId>-->
+<!--            <version>${mybatis-spring-boot}</version>-->
+<!--        </dependency>-->
 
         <!-- MySQL 连接驱动依赖 -->
         <dependency>
